@@ -1,2 +1,2 @@
 # DongNoteBook
-Record something for the programming life as a Android Codeder.
+Record something for the programming life as a Android Coder.
