@@ -1,0 +1,42 @@
+增加app步骤：
+第一步：gerrit 找管理员新建仓库 RedwoodTahoeMedia
+第二步：将代码在本地clone这个仓库（注意是在工程根目录的redwood下），将代码移植到这个目录下
+第三步：项目根目录下，        .repo/manifests/  添加对应的xml添加工程
+            <project name="apps/gladius/android/chery/e0x/RedwoodMars" path="redwood/RedwoodMars" />
+    <project name="apps/gladius/android/chery/e0x/demo/RedwoodTahoeMedia" path="redwood/RedwoodTahoeMedia" />
+    
+第四步：    project_settings.gradle 添加module
+include ':Redwood:RedwoodTahoeMedia'
+project(":Redwood:RedwoodTahoeMedia").projectDir = file("${coresRoot}/redwood/RedwoodTahoeMedia")
+
+第五步： 本地 git clone ssh://youchang.huang@git.i-tetris.com:29418/qcom/sa/quic/la/platform/vendor/e0x/prebuilts  将相关应用加入,
+
+   apk_prebuilts里的Android.mk文件，
+   LOCAL_VENDOR_MODULE := true 表示 apk将被放到 vendor 目录；
+   没有写LOCAL_VENDOR_MODULE 或者 LOCAL_VENDOR_MODULE := false,会把apk放到system
+
+   LOCAL_VENDOR_MODULE := true 表示apk将被放到 vendor/pri-app或者system/pri-app下
+   LOCAL_VENDOR_MODULE不写或者LOCAL_VENDOR_MODULE := false,apk将被放到vendor/app或者system/app下
+
+  配置 
+  LOCAL_PRIVILEGED_MODULE := true  
+  LOCAL_SYSTEM_EXT_MODULE := true 
+  可以将apk配置到 /system/system_ext/priv-app 下
+
+  还有其他配置可以把apk放到data下。
+  
+  这一步结束后，可以保证apk能被编译到 OS代码中
+  
+
+第六步：android os代码里，android/device/mega/redwood/device.mk,在device.mk添加一行   
+       可以 git clone ssh://git.i-tetris.com:29418/qcom/sa/quic/la/vendor/mega/device/pinnacles    git clone ssh://git.i-tetris.com:29418/qcom/sa/quic/la/vendor/mega/device/redwood 进行修改提交
+       t28 的
+       git clone ssh://git.i-tetris.com:29418/qcom/sa/quic/la/vendor/mega/device/northstar
+       
+第七步：        如果是priv-app,需要添加default-permission
+第八步： 第六步的代码先不着急合入，待第二天拉os代码，看看自己添加的apk有没有被打入os中，如果成功，就合入五六两步的代码。
+       
+       
+注意：对于 apps/gladius/android/这种仓库，主线是master
+     对于 qcom/sa/quic/la/platform，这种OS那边的代码主线就是 dev_hqx_1.2.1     
+     从Android8.0 开始，特权应用要使用系统的特许权限，则需要把该特许权限添加至白名单中 系统应用的private permissions 特许权限 需要加priv-app whitelist
