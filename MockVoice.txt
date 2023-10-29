@@ -1,0 +1,170 @@
+adb shell am start -n com.mega.redwoodhvac/.view.DebugActivity
+adb shell  mega_car -e Climate#ID_WHOLE_CABIN_AIR_CD  80 1
+#后排空调
+adb shell  mega_car -e Climate#ID_WHOLE_CABIN_AIR_CD  1792 1
+三排空调
+adb shell  mega_car -e Signal#AC_STATUS_THIRD  0 1
+#扫风模式
+{\\"airflowDirection\\":\\"镜像风\\",\\"direction\\":\\"主驾\\"}
+{\"airflowDirection\":\"扫风\"}
+{"airflowDirection":"自动扫风","device":"空调","operation":"SET","mService":"airControl","mUser":"2"}
+{\"airflowDirection\":\"左右扫风\"}
+#自动模式
+{\\"device\\":\\"空调\\",\\"mode\\":\\"自动\\","direction\\":\\"前\\"}
+{\\"device\\":\\"空调\\",\\"mode\\":\\"自动\\","direction\\":\\"后\\"}
+#内外循环
+{mode:"内循环"}
+#香氛
+#打开/关闭
+{"mode":"香氛"}
+
+{"mode":"香氛浓度","modeValue":"PLUS"}
+
+{"name": "香氛余量"}
+
+{ "name": "香氛类型"}
+
+{"mode": "香氛", "modeValue": "风起旖旎"}
+
+{mode:"香氛浓度",modeValue:"MAX"}
+
+{"mode":"香氛浓度","modeValue":{"direct":"+","offset":"1","ref":"CUR","type":"SPOT"}}
+
+#吹风模式
+{"airflowDirection":"面"}
+{\\"airflowDirection\\":\\"吹面吹脚\\"}
+
+{"airflowDirection":"吹窗","device":"空调"}
+
+{\\"airflowDirection\\":\\"脚\\"}
+
+{\\"airflowDirection\\":\\"脚\\",\\"direction\\":\\"后\\"}
+
+{\\"airflowDirection\\":\\"脚\\",\\"direction\\":\\"第二排\\"}
+
+{\\"airflowDirection\\":\\"脚\\",\\"direction\\":\\"第三排\\"}
+
+{"mode":"除雾"}
+
+//切换出风口/切换吹风模式
+{"airflowDirection": "CURRENT","device": "空调"}
+//切换智能模式
+{"mode": "CURRENT","device": "空调"}
+#前排空调温度
+{\\"device\\":\\"空调\\",\\"direction\\":\\"前\\",\\"temperature\\":\\"MIN\\"}
+
+{temperature:"PLUS_LITTLE"}
+
+{temperature:"MINUS_LITTLE"}
+
+{"device":"空调","mode":"急速降温"}
+
+{\\"device\\":\\"空调\\",\\"mode\\":\\"单席\\"}
+
+//调到18.5
+{"device":"空调","temperature":{"direct":"+","offset":"18.5","ref":"ZERO","type":"SPOT"}}
+
+{"direction": "主驾","device": "空调","temperature": {"ref": "CUR","direct": "+","offset": "5","type": "SPOT"}}
+
+#后排空调温度
+{\\"direction\\":\\"后排左\\",\\"temperature\\":\\"MIN\\"}
+{\\"direction\\":\\"后排右\\",\\"temperature\\":\\"MIN\\"}
+{\\"direction\\":\\"主驾\\",\\"temperature\\":\\"MIN\\"}
+{\\"direction\\":\\"副驾\\",\\"temperature\\":\\"MIN\\"}
+{\\"direction\\":\\"前排\\",\\"temperature\\":\\"MIN\\"}
+{\\"direction\\":\\"后排\\",\\"temperature\\":\\"MIN\\"}
+
+
+//打开空调界面
+{"insType": "OPEN_AIRCONTROL_SET"}
+//关闭空调界面
+{ "insType": "CLOSE_AIRCONTROL_SET"}
+#打开空调开关
+{insType:"OPEN"}
+#关闭空调
+{insType:"CLOSE"}
+#出风口
+{ "mode": "左出风口", "direction": "主驾"}
+
+{ "mode": "右出风口", "direction": "主驾"}
+
+{ "mode": "左出风口", "direction": "副驾"}
+
+{ "mode": "右出风口", "direction": "副驾"}
+
+{"mode": "左出风口","direction": "主驾","airflowDirection": "上"}
+{"mode": "右出风口","direction": "副驾","airflowDirection": "右"}
+
+
+
+#前/后除霜
+{"mode":"前除霜"}
+{"mode":"后除霜"}
+
+
+制冷
+{\\"mode\\":\\"制冷\\"}
+
+//快速取暖
+{\\"mode\\":\\"快速取暖\\"}
+
+座椅按摩
+{"mode":"座椅按摩","modeValue":"脉冲","name":"主驾座椅"}
+
+{"mode":"座椅按摩","name":"前排座椅","nameValue":{"direct":"+","offset":"2","ref":"ZERO","type":"SPOT"}}
+{"mode":"座椅按摩","name":"副驾座椅"}
+{"mode":"座椅按摩","name":"主驾座椅","nameValue":"PLUS"}
+{\"mode\":\"座椅按摩\",\"name\":\"前排座椅\",\"nameValue\":{\"direct\":\"+\",\"offset\":\"1\",\"ref\":\"ZERO\",\"type\":\"SPOT\"}}
+{\"mode\":\"座椅按摩\",\"name\":\"主驾座椅\",\"nameValue\":{\"direct\":\"-\",\"offset\":\"1\",\"ref\":\"CUR\",\"type\":\"SPOT\"}}
+
+{ "name": "座椅","mode": "座椅按摩"}
+
+{\\"mode\\":\\"座椅按摩\\",\\"name\\":\\"座椅\\",\\"nameValue\\":{\\"direct\\":\\"+\\",\\"offset\\":\\"1\\",\\"ref\\":\\"ZERO\\",\\"type\\":\\"SPOT\\"}}
+
+{"mode":"方向盘加热","name":"方向盘"}
+{\"mode\":\"方向盘加热\",\"name\":\"方向盘\",\"nameValue\":{\"direct\":\"+\",\"offset\":\"3\",\"ref\":\"ZERO\",\"type\":\"SPOT\"}}
+
+
+{"name": "后排屏"}
+
+{"direction":"双区","insType":"OPEN"}
+
+#座椅通风
+
+{"mode": "座椅通风","name": "前排座椅"}
+
+{"mode": "座椅通风","name": "后排座椅"}
+
+{"mode": "座椅通风","name": "主驾座椅"}
+
+{"mode": "座椅通风","name": "副驾座椅"}
+
+{"mode":"座椅通风","name":"主驾座椅","nameValue":{"direct":"+","offset":"3","ref":"CUR","type":"SPOT"}}
+{\"mode\":\"座椅通风\",\"name\":\"主驾座椅\",\"nameValue\":{\"direct\":\"-\",\"offset\":\"1\",\"ref\":\"CUR\",\"type\":\"SPOT\"}}
+
+{"mode": "座椅通风","name": "所有座椅"}
+
+{ "mode": "座椅加热","temperature": "MAX","name": "主驾座椅"}
+{\"mode\":\"座椅加热\",\"name\":\"主驾座椅\",\"nameValue\":{\"direct\":\"-\",\"offset\":\"1\",\"ref\":\"CUR\",\"type\":\"SPOT\"}}
+
+#座椅加热
+{"mode": "座椅加热","name": "所有座椅"}
+
+风速
+{\\"fanSpeed\\":\\"高风\\"}
+空调风速3
+{\"device\":\"空调\",\"fanSpeed\":{\"offset\":\"3\",\"ref\":\"CUR\",\"type\":\"SPOT\"}}
+
+#智能模式
+{ "mode": "恒温座舱", "device": "空调"}
+{ "mode": "急速降温", "device": "空调"}
+{ "mode": "极速除味", "device": "空调"}
+
+#打开空调开关
+{insType:"OPEN","direction": "第三排"}
+#关闭空调开关
+{insType:"CLOSE","direction": "第三排"}
+
+
+
+
