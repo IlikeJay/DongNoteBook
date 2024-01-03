@@ -29,8 +29,8 @@ adb shell  msg_center_test -t AC/SyncMode  '{"value":1}'
 adb shell  msg_center_test -t AC/SeatHeating/FrontLeft  '{"value":1}'
 
 #副驾座椅通风
-
-adb shell  msg_center_test -t AC/SeatVentilation/FrontRight  '{"value":2}'
+adb shell  msg_center_test -t AC/SeatVentilation/FrontLeft  '{"value":3}'
+adb shell  msg_center_test -t AC/SeatVentilation/FrontRight  '{"value":1}'
 
 #空气净化
 

@@ -32,6 +32,14 @@ someip.messageid == 0xA70D8003
 someip.messageid == 0xA70E8003 || someip.messageid == 0xA9278001
 #SYNC
 someip.messageid == 0xA70B8001 || someip.messageid == 0xA9228001
+#急速制冷
+someip.messageid == 0xA71A8001 || someip.messageid == 0xA9A08001
+#快速采暖
+someip.messageid == 0xA71A8002 || someip.messageid == 0xA9A08002
+#主驾温度
+someip.messageid == 0xA7028001 || someip.messageid == 0xA91D8001
+
+
 
 
 

@@ -158,10 +158,34 @@ wind(){
 }
 
 testDisplayActive(){
-  sleep 0.3s
+  sleep 0.5s
   adb shell  msg_center_test -t AC/Display '{"value":1}'
   adb shell  msg_center_test -t AC/WindLevel/Front  '{"value":4}'
-  sleep 0.3s
+  sleep 0.5s
+  adb shell  msg_center_test -t AC/Display '{"value":0}'
+  
+  sleep 0.5s
+  adb shell  msg_center_test -t AC/Display '{"value":1}'
+  adb shell  msg_center_test -t AC/WindLevel/Front  '{"value":4}'
+  sleep 0.5s
+  adb shell  msg_center_test -t AC/Display '{"value":0}'
+  
+  sleep 0.5s
+  adb shell  msg_center_test -t AC/Display '{"value":1}'
+  adb shell  msg_center_test -t AC/WindLevel/Front  '{"value":4}'
+  sleep 0.5s
+  adb shell  msg_center_test -t AC/Display '{"value":0}'
+  
+  sleep 0.5s
+  adb shell  msg_center_test -t AC/Display '{"value":1}'
+  adb shell  msg_center_test -t AC/WindLevel/Front  '{"value":4}'
+  sleep 0.5s
+  adb shell  msg_center_test -t AC/Display '{"value":0}'
+  
+  sleep 0.5s
+  adb shell  msg_center_test -t AC/Display '{"value":1}'
+  adb shell  msg_center_test -t AC/WindLevel/Front  '{"value":4}'
+  sleep 0.5s
   adb shell  msg_center_test -t AC/Display '{"value":0}'
   
 }
@@ -499,6 +523,7 @@ driverPowerInfo(){
   adb shell  mega_car -e Signal#ID_POWER_STATUS 0 -1
    sleep 1s
   adb shell  mega_car -e Signal#ID_POWER_STATUS 0 1
+  adb shell  mega_car -e Northstar#ID_POWER_STATUS 0 1
   
 }
 
@@ -526,8 +551,8 @@ pm25(){
 }
 
 windMode(){
-  //后排
-  adb shell  mega_car -e Climate#ID_BLW_DIRECT 1792 2
+  adb shell  mega_car -e Climate#ID_WHOLE_CABIN_AIR_CD  80 1
+  adb shell  mega_car -e Climate#ID_BLW_DIRECT 80 1
 }
 
 frontDefrost(){
@@ -585,7 +610,32 @@ recycle(){
 }
 thirdPower(){
  adb shell  mega_car -e Signal#AC_STATUS_THIRD  0 $2
+ adb shell msg_center_test -t T1CF1/PowerStatus '{"value":1}'
 }
+
+memory(){
+adb shell msg_center_test -t VehicleWindow/SeatAndRearMirrorEnableSave '{"value":1}'
+adb shell msg_center_test -t VehicleWindow/SeatAndRearMirrorMemoryReq '{"value":1}'
+adb shell msg_center_test -t VehicleWindow/SeatAndRearMirrorMemoryReq '{"value":0}'
+}
+
+fragranceWorkSts(){
+  adb shell  msg_center_test -t AC/Fragrance/WorkStatus1  '{"value":0}'
+  adb shell  msg_center_test -t AC/Fragrance/WorkStatus2  '{"value":1}'
+  adb shell  msg_center_test -t AC/Fragrance/WorkStatus3  '{"value":2}'
+}
+
+massage(){
+ adb shell  msg_center_test -t AC/SeatMassageMode/FrontLeft '{"value":1}'
+ adb shell  msg_center_test -t AC/SeatMassageLevel/FrontLeft '{"value":1}'
+}
+seatAdjust(){
+ adb shell  msg_center_test -t VehicleWindow/SeatForeBackAdjust '{"value":20}'
+ adb shell  msg_center_test -t VehicleWindow/SeatRotationAngleAdjust '{"value":15}'
+ adb shell  msg_center_test -t VehicleWindow/SeatUpDownAdjust '{"value":30}'
+
+}
+
 $1
 
 
