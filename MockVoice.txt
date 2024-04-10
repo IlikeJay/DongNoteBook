@@ -152,6 +152,7 @@ adb shell  mega_car -e Signal#AC_STATUS_THIRD  0 1
 
 风速
 {\\"fanSpeed\\":\\"高风\\"}
+{ "fanSpeed": "中风","direction": "第二排","device": "空调"}
 空调风速3
 {\"device\":\"空调\",\"fanSpeed\":{\"offset\":\"3\",\"ref\":\"CUR\",\"type\":\"SPOT\"}}
 

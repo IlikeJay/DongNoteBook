@@ -27,7 +27,7 @@ someip.messageid == 0xA70E8004 || someip.messageid == 0xA70E8006 || someip.messa
 #车内PM25 TMS_PM25
 someip.messageid == 0xA70D8003
 #座椅按摩
-
+someip.messageid == 0xA9AB8001   || someip.serviceid == 0xC840
 #香氛开关
 someip.messageid == 0xA70E8003 || someip.messageid == 0xA9278001
 #SYNC

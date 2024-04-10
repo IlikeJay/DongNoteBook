@@ -34,9 +34,9 @@ adb shell  msg_center_test -t AC/AirClean  '{"value":1}'
 
 adb shell  msg_center_test -t AC/Fragrance/Pos1TypesSts  '{"value":1}'
 
-adb shell  msg_center_test -t AC/Fragrance/Pos2TypesSts  '{"value":2}'
+adb shell  msg_center_test -t AC/Fragrance/Pos2TypesSts  '{"value":1}'
 
-adb shell  msg_center_test -t AC/Fragrance/Pos3TypesSts  '{"value":3}'
+adb shell  msg_center_test -t AC/Fragrance/Pos3TypesSts  '{"value":1}'
 
 adb shell  msg_center_test -t AC/Fragrance/CeconsistenceLevel  '{"value":5}'
 

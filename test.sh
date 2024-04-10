@@ -1,7 +1,3 @@
-
-
-
-
 test(){
 
 adb shell  msg_center_test -t AC/SeatHeating/FrontLeft  '{"value":3}'
@@ -124,7 +120,7 @@ wind(){
   adb shell  msg_center_test -t AC/WindLevel/Front  '{"value":2}'
   sleep 0.5s
   adb shell  msg_center_test -t AC/WindLevel/Front  '{"value":3}'
-  sleep 0.5s
+  sleep 0
    adb shell  msg_center_test -t AC/WindLevel/Front  '{"value":4}'
   sleep 0.5s
    adb shell  msg_center_test -t AC/WindLevel/Front  '{"value":5}'
@@ -154,7 +150,6 @@ wind(){
    adb shell  msg_center_test -t AC/WindLevel/Front  '{"value":4}'
   sleep 0.5s
   adb shell  msg_center_test -t AC/WindLevel/Front  '{"value":5}'
-  
 }
 
 testDisplayActive(){
@@ -196,6 +191,9 @@ testEnterIn(){
   adb shell  msg_center_test -t AC/WindLevel/Front  '{"value":4}'
   sleep 0.3s
   adb shell  msg_center_test -t AC/Status/Front '{"value":0}'
+  adb shell  msg_center_test -t AC/Status/Third '{"value":1}'
+   sleep 0.3s
+  adb shell  msg_center_test -t AC/Status/Third '{"value":0}'
   
 }
 
@@ -583,13 +581,6 @@ adb shell  mega_car -e Signal#ID_INTE_MODE_AQS_AUTO_RUN 0 1
 adb shell  mega_car -e Signal#ID_AQS_DISPLAY 0 1
 
 }
-
-wind(){
-adb shell  mega_car -e Climate#ID_BLW_LEVEL 80 1
-adb shell  mega_car -e Climate#ID_AIR_CD_AC_MODE 0 1
-
-
-}
 drive_gear(){
 adb shell  mega_car -e Signal#ID_DRIVING_INFO_GEAR 0 1
 adb shell  mega_car -e Signal#ID_POWER_STATUS 0 1
@@ -617,12 +608,36 @@ memory(){
 adb shell msg_center_test -t VehicleWindow/SeatAndRearMirrorEnableSave '{"value":1}'
 adb shell msg_center_test -t VehicleWindow/SeatAndRearMirrorMemoryReq '{"value":1}'
 adb shell msg_center_test -t VehicleWindow/SeatAndRearMirrorMemoryReq '{"value":0}'
+sleep 0.5s
+adb shell msg_center_test -t VehicleWindow/SeatAndRearMirrorEnableSave '{"value":0}'
+sleep 0.5s
+adb shell msg_center_test -t VehicleWindow/SeatAndRearMirrorEnableSave '{"value":1}'
+sleep 0.5s
+adb shell msg_center_test -t VehicleWindow/SeatAndRearMirrorEnableSave '{"value":0}'
+sleep 0.5s
+adb shell msg_center_test -t VehicleWindow/SeatAndRearMirrorEnableSave '{"value":1}'
+adb shell msg_center_test -t VehicleWindow/SeatAndRearMirrorPosition '{"value":1}'
+sleep 0.5s
+adb shell msg_center_test -t VehicleWindow/SeatAndRearMirrorPosition '{"value":16}'
+sleep 0.5s
+adb shell msg_center_test -t VehicleWindow/SeatAndRearMirrorPosition '{"value":0}'
+sleep 0.5s
+adb shell msg_center_test -t VehicleWindow/SeatAndRearMirrorMemorySts '{"value":0}'
+sleep 0.5s
+adb shell msg_center_test -t VehicleWindow/SeatAndRearMirrorMemorySts '{"value":1}'
+sleep 0.5s
+adb shell msg_center_test -t VehicleWindow/SeatAndRearMirrorMemorySts '{"value":2}'
+sleep 0.5s
+adb shell msg_center_test -t VehicleWindow/SeatAndRearMirrorMemorySts '{"value":3}'
+sleep 0.5s
+adb shell msg_center_test -t VehicleWindow/SeatAndRearMirrorMemorySts '{"value":0}'
+
 }
 
 fragranceWorkSts(){
   adb shell  msg_center_test -t AC/Fragrance/WorkStatus1  '{"value":0}'
-  adb shell  msg_center_test -t AC/Fragrance/WorkStatus2  '{"value":1}'
-  adb shell  msg_center_test -t AC/Fragrance/WorkStatus3  '{"value":2}'
+  adb shell  msg_center_test -t AC/Fragrance/WorkStatus2  '{"value":0}'
+  adb shell  msg_center_test -t AC/Fragrance/WorkStatus3  '{"value":0}'
 }
 
 massage(){
@@ -636,7 +651,193 @@ seatAdjust(){
 
 }
 
+
+testTripA(){
+ adb shell  msg_center_test -t DrivingInfo/FuelTripBDriveTime '{"value":1}'
+ sleep 0.5s
+ adb shell  msg_center_test -t DrivingInfo/FuelTripBDriveTime '{"value":2}'
+ sleep 0.5s
+ adb shell  msg_center_test -t DrivingInfo/FuelTripBDriveTime '{"value":3}'
+ sleep 0.5s
+ adb shell  msg_center_test -t DrivingInfo/FuelTripBDriveTime '{"value":4}'
+ sleep 0.5s
+ adb shell  msg_center_test -t DrivingInfo/FuelTripBDriveTime '{"value":5}'
+ sleep 0.5s
+ adb shell  msg_center_test -t DrivingInfo/FuelTripBDriveTime '{"value":6}'
+ sleep 0.5s
+  adb shell  msg_center_test -t DrivingInfo/FuelTripBDriveTime '{"value":7}'
+ sleep 0.5s
+ adb shell  msg_center_test -t DrivingInfo/FuelTripBDriveTime '{"value":8}'
+ sleep 0.5s
+ adb shell  msg_center_test -t DrivingInfo/FuelTripBDriveTime '{"value":9}'
+ sleep 0.5s
+  adb shell  msg_center_test -t DrivingInfo/FuelTripBDriveTime '{"value":10}'
+ sleep 0.5s
+ adb shell  msg_center_test -t DrivingInfo/FuelTripBDriveTime '{"value":11}'
+ sleep 0.5s
+ adb shell  msg_center_test -t DrivingInfo/FuelTripBDriveTime '{"value":12}'
+ sleep 0.5s
+  adb shell  msg_center_test -t DrivingInfo/FuelTripBDriveTime '{"value":13}'
+ sleep 0.5s
+ adb shell  msg_center_test -t DrivingInfo/FuelTripBDriveTime '{"value":14}'
+ sleep 0.5s
+ adb shell  msg_center_test -t DrivingInfo/FuelTripBDriveTime '{"value":15}'
+ sleep 0.5s
+}
+
+testCanDataReceive(){
+adb shell  msg_center_test -t EngineCandata/LHMRRadarSensorDistance '{"value":1}'
+
+}
+
+testACRequest() {
+  adb shell  msg_center_test -t AC/VoiceSteeringWheelHeating  '{"value":1}'
+  adb shell  msg_center_test -t VehicleWindow/WindowAll  '{"value":13}'
+  adb shell  msg_center_test -t AC/VoiceSeatHeating/FrontLeft  '{"value":4}'
+  adb shell  msg_center_test -t AC/VoiceSeatHeating/FrontRight  '{"value":3}'
+  adb shell  msg_center_test -t AC/VoiceSeatVentilation/FrontLeft  '{"value":3}'
+  adb shell  msg_center_test -t AC/VoiceSeatVentilation/FrontRight  '{"value":1}'
+}
+testACRequest2(){
+ 
+    adb shell  msg_center_test -t AC/VoiceSteeringWheelHeating  '{"value":0}'
+  adb shell  msg_center_test -t VehicleWindow/WindowAll  '{"value":0}'
+  adb shell  msg_center_test -t AC/VoiceSeatHeating/FrontLeft  '{"value":0}'
+  adb shell  msg_center_test -t AC/VoiceSeatHeating/FrontRight  '{"value":0}'
+  adb shell  msg_center_test -t AC/VoiceSeatVentilation/FrontLeft  '{"value":0}'
+  adb shell  msg_center_test -t AC/VoiceSeatVentilation/FrontRight  '{"value":-1}'
+}
+
+testSeatHeat(){
+
+#主驾座椅加热
+
+adb shell  msg_center_test -t AC/SeatHeating/FrontLeft  '{"value":4}'
+adb shell  msg_center_test -t AC/SeatHeating/FrontRight  '{"value":4}'
+#副驾座椅通风
+#adb shell  msg_center_test -t AC/SeatVentilation/FrontLeft  '{"value":3}'
+#adb shell  msg_center_test -t AC/SeatVentilation/FrontRight  '{"value":1}'
+}
+
+testPM25(){
+ adb shell  msg_center_test -t Sensor/OutsideAirQuality  '{"value":0}'
+ adb shell  msg_center_test -t Sensor/InsideAirQuality  '{"value":0}'
+ read name
+ echo $name
+ adb shell  msg_center_test -t Sensor/OutsideAirQuality  '{"value":36}'
+ adb shell  msg_center_test -t Sensor/InsideAirQuality  '{"value":36}'
+read name
+echo $name
+ adb shell  msg_center_test -t Sensor/OutsideAirQuality  '{"value":76}'
+ adb shell  msg_center_test -t Sensor/InsideAirQuality  '{"value":76}'
+  read name
+  echo $name
+ adb shell  msg_center_test -t Sensor/OutsideAirQuality  '{"value":116}'
+ adb shell  msg_center_test -t Sensor/InsideAirQuality  '{"value":116}'
+ read name
+ echo $name
+ adb shell  msg_center_test -t Sensor/OutsideAirQuality  '{"value":151}'
+ adb shell  msg_center_test -t Sensor/InsideAirQuality  '{"value":151}'
+ read name
+ echo $name
+ adb shell  msg_center_test -t Sensor/OutsideAirQuality  '{"value":251}'
+ adb shell  msg_center_test -t Sensor/InsideAirQuality  '{"value":251}'
+}
+
+testFragrance(){
+adb shell  msg_center_test -t AC/Fragrance/Pos1TypesSts  '{"value":3}'
+adb shell  msg_center_test -t AC/Fragrance/Pos2TypesSts  '{"value":1}'
+adb shell  msg_center_test -t AC/Fragrance/Pos3TypesSts  '{"value":1}'
+}
+testSpeed(){
+adb shell  msg_center_test -t DrivingInfo/Speed  '{"value":15.1}'
+
+}
+
+wrongOperation(){
+adb shell  msg_center_test -t AC/WrongOperation  '{"value":2}'
+
+}
+
+massageModeLeft(){
+adb shell  msg_center_test -t AC/SeatMassageMode/FrontLeft '{"value":1}'
+sleep 0.5s
+adb shell  msg_center_test -t AC/SeatMassageMode/FrontLeft '{"value":2}'
+sleep 0.5s
+adb shell  msg_center_test -t AC/SeatMassageMode/FrontLeft '{"value":3}'
+sleep 0.5s
+adb shell  msg_center_test -t AC/SeatMassageMode/FrontLeft '{"value":1}'
+sleep 0.5s
+adb shell  msg_center_test -t AC/SeatMassageMode/FrontLeft '{"value":2}'
+sleep 0.5s
+adb shell  msg_center_test -t AC/SeatMassageMode/FrontLeft '{"value":3}'
+sleep 0.5s
+adb shell  msg_center_test -t AC/SeatMassageMode/FrontLeft '{"value":1}'
+sleep 0.5s
+adb shell  msg_center_test -t AC/SeatMassageMode/FrontLeft '{"value":2}'
+sleep 0.5s
+adb shell  msg_center_test -t AC/SeatMassageMode/FrontLeft '{"value":3}'
+sleep 0.5s
+adb shell  msg_center_test -t AC/SeatMassageMode/FrontLeft '{"value":1}'
+sleep 0.5s
+adb shell  msg_center_test -t AC/SeatMassageMode/FrontLeft '{"value":2}'
+sleep 0.5s
+adb shell  msg_center_test -t AC/SeatMassageMode/FrontLeft '{"value":3}'
+sleep 0.5s
+adb shell  msg_center_test -t AC/SeatMassageMode/FrontLeft '{"value":1}'
+sleep 0.5s
+adb shell  msg_center_test -t AC/SeatMassageMode/FrontLeft '{"value":2}'
+sleep 0.5s
+adb shell  msg_center_test -t AC/SeatMassageMode/FrontLeft '{"value":3}'
+sleep 0.5s
+adb shell  msg_center_test -t AC/SeatMassageMode/FrontLeft '{"value":1}'
+sleep 0.5s
+adb shell  msg_center_test -t AC/SeatMassageMode/FrontLeft '{"value":2}'
+sleep 0.5s
+adb shell  msg_center_test -t AC/SeatMassageMode/FrontLeft '{"value":3}'
+}
+
+massageModeRight(){
+adb shell  msg_center_test -t AC/SeatMassageMode/FrontRight '{"value":1}'
+sleep 0.5s
+adb shell  msg_center_test -t AC/SeatMassageMode/FrontRight '{"value":2}'
+sleep 0.5s
+adb shell  msg_center_test -t AC/SeatMassageMode/FrontRight '{"value":3}'
+sleep 0.5s
+adb shell  msg_center_test -t AC/SeatMassageMode/FrontRight '{"value":1}'
+sleep 0.5s
+adb shell  msg_center_test -t AC/SeatMassageMode/FrontRight '{"value":2}'
+sleep 0.5s
+adb shell  msg_center_test -t AC/SeatMassageMode/FrontRight '{"value":3}'
+sleep 0.5s
+adb shell  msg_center_test -t AC/SeatMassageMode/FrontRight '{"value":1}'
+sleep 0.5s
+adb shell  msg_center_test -t AC/SeatMassageMode/FrontRight '{"value":2}'
+sleep 0.5s
+adb shell  msg_center_test -t AC/SeatMassageMode/FrontRight '{"value":3}'
+sleep 0.5s
+adb shell  msg_center_test -t AC/SeatMassageMode/FrontRight '{"value":1}'
+sleep 0.5s
+adb shell  msg_center_test -t AC/SeatMassageMode/FrontRight '{"value":2}'
+sleep 0.5s
+adb shell  msg_center_test -t AC/SeatMassageMode/FrontRight '{"value":3}'
+sleep 0.5s
+adb shell  msg_center_test -t AC/SeatMassageMode/FrontRight '{"value":1}'
+sleep 0.5s
+adb shell  msg_center_test -t AC/SeatMassageMode/FrontRight '{"value":2}'
+sleep 0.5s
+adb shell  msg_center_test -t AC/SeatMassageMode/FrontRight '{"value":3}'
+sleep 0.5s
+adb shell  msg_center_test -t AC/SeatMassageMode/FrontRight '{"value":1}'
+sleep 0.5s
+adb shell  msg_center_test -t AC/SeatMassageMode/FrontRight '{"value":2}'
+sleep 0.5s
+adb shell  msg_center_test -t AC/SeatMassageMode/FrontRight '{"value":3}'
+}
+
+echo $2
 $1
+
 
 
 
