@@ -1,0 +1,3 @@
+主驾温度：adb logcat | grep -iE "eHMI|TMS_temp_left|setProp"
+
+扫风：adb logcat | grep -iE "TMS_SwingWSts|eHMI_SwingAdjust|setProp"

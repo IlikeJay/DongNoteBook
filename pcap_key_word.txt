@@ -1,0 +1,2 @@
+主驾温度
+someip.messageid == 0xA7028001 || someip.messageid == 0xA91D8001
