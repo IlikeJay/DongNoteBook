@@ -26,10 +26,9 @@ def filter_lines(target, *key):
             lines = f.readlines()
             resultLines = list(filter(lambda item: is_item_contains_all_keys(item, key), lines))
             result.writelines(resultLines)
-            print("------------------------Complete------------------------------------")
-            print("文件已生成 =>" + fileName)
-            print("----------------------------------------------------------------------")
-
+            print("\033[0;32m------------------------Complete--------------------------------------")
+            print("\033[1;32m文件已生成 =>" + fileName+"\033[0m")
+            print("\033[0;32m----------------------------------------------------------------------")
 
 def is_item_contains_all_keys(item, keys):
     for key in keys:

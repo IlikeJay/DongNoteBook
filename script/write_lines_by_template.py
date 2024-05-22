@@ -18,7 +18,8 @@ def batch_write(template, beforeText, time):
     print("head = " + head)
     tail = template[startIndex + 1:len(template)]
     print("tail = " + tail)
-    with open(beforeText + suffix, "w") as target:
+    new_file = beforeText + suffix
+    with open(new_file, "w") as target:
         lines = []
         for i in range(int(time)):
             mid = str(i + 1)
@@ -31,6 +32,9 @@ def batch_write(template, beforeText, time):
             print("line = " + line)
             lines.append(line)
         target.writelines(lines)
+        print("\033[0;32m-----------------SUCCESS---------------------")
+        print("\033[1;32m" + new_file)
+        print("\033[0;32m---------------------------------------------")
 
 
 if __name__ == "__main__":

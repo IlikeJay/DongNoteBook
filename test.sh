@@ -1,3 +1,4 @@
+#!/usr/bin/sh
 test(){
 
 adb shell  msg_center_test -t AC/SeatHeating/FrontLeft  '{"value":3}'
@@ -835,6 +836,94 @@ sleep 0.5s
 adb shell  msg_center_test -t AC/SeatMassageMode/FrontRight '{"value":3}'
 }
 
+testSeat(){
+adb shell  msg_center_test -t AC/SeatMassageLevel/FrontLeft  '{"value":3}'
+adb shell  msg_center_test -t AC/SeatMassageLevel/FrontRight  '{"value":1}'
+adb shell  msg_center_test -t AC/SeatMassageMode/FrontLeft  '{"value":1}'
+adb shell  msg_center_test -t AC/SeatMassageMode/FrontRight  '{"value":2}'
+#主驾座椅加热
+
+adb shell  msg_center_test -t AC/SeatHeating/FrontLeft  '{"value":1}'
+
+#副驾座椅通风
+adb shell  msg_center_test -t AC/SeatVentilation/FrontLeft  '{"value":3}'
+adb shell  msg_center_test -t AC/SeatVentilation/FrontRight  '{"value":1}'
+}
+
+testConstant(){
+adb shell  msg_center_test -t AC/InteMode/KeepWarm  '{"value":2}'
+
+}
+
+test111(){
+i=0
+while true
+do
+   adb shell  msg_center_test -t AC/Display '{"value":1}'
+   adb shell  msg_center_test -t AC/Status/Front '{"value":1}'
+
+   sleep 0.1s
+   adb shell  msg_center_test -t AC/Display '{"value":0}'
+   adb shell  msg_center_test -t AC/Status/Front '{"value":0}'
+   sleep 0.1s
+   adb shell  msg_center_test -t AC/Display '{"value":1}'
+   adb shell  msg_center_test -t AC/Status/Front '{"value":1}'
+   sleep 0.1s
+   adb shell  msg_center_test -t AC/Display '{"value":0}'
+   adb shell  msg_center_test -t AC/Status/Front '{"value":0}'
+   sleep 0.1s
+      adb shell  msg_center_test -t AC/Display '{"value":1}'
+   adb shell  msg_center_test -t AC/Status/Front '{"value":1}'
+   sleep 0.1s
+   adb shell  msg_center_test -t AC/Display '{"value":0}'
+   adb shell  msg_center_test -t AC/Status/Front '{"value":0}'
+   sleep 0.1s
+   adb shell  msg_center_test -t AC/Display '{"value":1}'
+   adb shell  msg_center_test -t AC/Status/Front '{"value":1}'
+   sleep 0.1s
+   adb shell  msg_center_test -t AC/Display '{"value":0}'
+   adb shell  msg_center_test -t AC/Status/Front '{"value":0}'
+
+#互相弹
+   sleep 0.1s
+   adb shell  msg_center_test -t AC/SeatMassageMode/FrontLeft '{"value":1}'
+   adb shell  msg_center_test -t AC/SeatMassageMode/FrontLeft '{"value":0}'
+   sleep 0.1s
+   adb shell  msg_center_test -t AC/Display '{"value":1}'
+   adb shell  msg_center_test -t AC/Display '{"value":0}'
+   sleep 0.1s
+   adb shell  msg_center_test -t AC/SeatMassageMode/FrontLeft '{"value":1}'
+   adb shell  msg_center_test -t AC/SeatMassageMode/FrontLeft '{"value":0}'
+   sleep 0.1s
+   adb shell  msg_center_test -t AC/Display '{"value":1}'
+   adb shell  msg_center_test -t AC/Display '{"value":0}'
+   sleep 0.1s
+ 
+   adb shell  msg_center_test -t AC/SeatMassageMode/FrontLeft '{"value":1}'
+   adb shell  msg_center_test -t AC/SeatMassageMode/FrontLeft '{"value":0}'
+   sleep 0.1s
+   adb shell  msg_center_test -t AC/Display '{"value":1}'
+   adb shell  msg_center_test -t AC/Display '{"value":0}'
+   sleep 0.1s
+   adb shell  msg_center_test -t AC/SeatMassageMode/FrontLeft '{"value":1}'
+   adb shell  msg_center_test -t AC/SeatMassageMode/FrontLeft '{"value":0}'
+   sleep 0.1s
+   adb shell  msg_center_test -t AC/Display '{"value":1}'
+   adb shell  msg_center_test -t AC/Display '{"value":0}'
+   echo "当前时间是: $(date +"%Y-%m-%d %H:%M:%S")"
+done
+
+}
+
+testFuelCar(){
+adb shell  msg_center_test -t AC/SeatMassageLevel/FrontLeft  '{"value":3}'
+adb shell  msg_center_test -t AC/Status/Front '{"value":1}'
+sleep 0.5s
+adb shell  msg_center_test -t AC/Status/Front '{"value":0}'
+adb shell  msg_center_test -t AC/SeatMassageLevel/FrontLeft  '{"value":3}'
+}
+
+#main()
 echo $2
 $1
 

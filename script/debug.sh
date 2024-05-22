@@ -5,7 +5,7 @@
 adb root
 adb remount
 
-adb logcat > debug.log &
+#adb logcat > debug.log &
 
 scrcpy
 
