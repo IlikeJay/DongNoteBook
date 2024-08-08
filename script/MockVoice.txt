@@ -113,15 +113,18 @@ adb shell  mega_car -e Signal#AC_STATUS_THIRD  0 1
 {\\"mode\\":\\"快速取暖\\"}
 
 座椅按摩
-{"mode":"座椅按摩","modeValue":"脉冲","name":"主驾座椅"}
+{"mode":"座椅按摩","modeValue":"波浪","name":"主驾座椅"}
 
 {"mode":"座椅按摩","name":"前排座椅","nameValue":{"direct":"+","offset":"2","ref":"ZERO","type":"SPOT"}}
 {"mode":"座椅按摩","name":"副驾座椅"}
+{"mode":"座椅按摩","name":"主驾座椅"}
 {"mode":"座椅按摩","name":"主驾座椅","nameValue":"PLUS"}
-{\"mode\":\"座椅按摩\",\"name\":\"前排座椅\",\"nameValue\":{\"direct\":\"+\",\"offset\":\"1\",\"ref\":\"ZERO\",\"type\":\"SPOT\"}}
-{\"mode\":\"座椅按摩\",\"name\":\"主驾座椅\",\"nameValue\":{\"direct\":\"-\",\"offset\":\"1\",\"ref\":\"CUR\",\"type\":\"SPOT\"}}
+{\"mode\":\"座椅按摩\",\"name\":\"主驾座椅\",\"nameValue\":{\"direct\":\"+\",\"offset\":\"1\",\"ref\":\"ZERO\",\"type\":\"SPOT\"}}
+{\"mode\":\"座椅按摩\",\"name\":\"副驾座椅\",\"nameValue\":{\"direct\":\"+\",\"offset\":\"1\",\"ref\":\"ZERO\",\"type\":\"SPOT\"}}
 
-{ "name": "座椅","mode": "座椅按摩"}
+{\"mode\":\"座椅按摩\",\"name\":\"主驾座椅\",\"nameValue\":{\"direct\":\"-\",\"offset\":\"1\",\"ref\":\"CUR\",\"type\":\"SPOT\"}}
+//transform
+{ "name": "主驾座椅","mode": "座椅按摩"}
 
 {\\"mode\\":\\"座椅按摩\\",\\"name\\":\\"座椅\\",\\"nameValue\\":{\\"direct\\":\\"+\\",\\"offset\\":\\"1\\",\\"ref\\":\\"ZERO\\",\\"type\\":\\"SPOT\\"}}
 
@@ -154,6 +157,9 @@ adb shell  mega_car -e Signal#AC_STATUS_THIRD  0 1
 #座椅加热
 {"mode": "座椅加热","name": "所有座椅"}
 
+座椅调节
+{\"mode\":\"座椅位置\",\"modeValue\":\"BACK\",\"name\":\"主驾座椅\"}
+
 风速
 {\\"fanSpeed\\":\\"高风\\"}
 { "fanSpeed": "中风","direction": "第二排","device": "空调"}
@@ -172,4 +178,8 @@ adb shell  mega_car -e Signal#AC_STATUS_THIRD  0 1
 
 
 
+ { "mode": "座椅位置","name": "主驾座椅","modeValue": "BACK"}
 
+
+#国际版协议
+{"device":"air_condition","mode":"wind_speed_control","value":{"direct":"+","offset":"4","ref":"zero","type":"spot"},"position":"rear_left"}

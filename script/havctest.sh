@@ -1,12 +1,15 @@
 adb shell msg_center_test -t T1CF1/PowerStatus '{"value":1}'
+adb shell msg_center_test -t DrivingInfo/Speed '{"value":16}'
+adb shell msg_center_test -t DrivingInfo/MotorSpeed '{"value":301}'
+
 
 #空调开关
 adb shell msg_center_test -t AC/Status/Front  '{"value":1}'
 
 adb shell msg_center_test -t AC/Status/Third  '{"value":1}'
 
-adb shell  msg_center_test -t AC/Temperature/FrontLeft  '{"value":31}'
-adb shell  msg_center_test -t AC/Temperature/FrontRight  '{"value":25}'
+adb shell  msg_center_test -t AC/Temperature/FrontLeft  '{"value":16}'
+adb shell  msg_center_test -t AC/Temperature/FrontRight  '{"value":16}'
 #风速
 
 adb shell  msg_center_test -t AC/WindLevel/Front  '{"value":5}'
@@ -17,7 +20,7 @@ adb shell  msg_center_test -t AC/WindLevel/Third '{"value":3}'
 
 #吹风模式
 
-adb shell  msg_center_test -t AC/WindMode/Front  '{"value":7}'
+adb shell  msg_center_test -t AC/WindMode/Front  '{"value":1}'
 
 adb shell  msg_center_test -t AC/AutoMode/Front  '{"value":1}'
 
@@ -27,7 +30,7 @@ adb shell  msg_center_test -t AC/ACMode  '{"value":1}'
 
 #前除霜
 
-adb shell  msg_center_test -t AC/FrontDefrost  '{"value":1}'
+adb shell  msg_center_test -t AC/FrontDefrost  '{"value":0}'
 
 adb shell  msg_center_test -t AC/RearDefrost  '{"value":1}'
 
@@ -43,7 +46,7 @@ adb shell  msg_center_test -t AC/SyncMode  '{"value":0}'
 
 #空气净化
 
-adb shell  msg_center_test -t AC/AirClean  '{"value":1}'
+adb shell  msg_center_test -t AC/AirClean  '{"value":0}'
 adb shell  msg_center_test -t Sensor/AirQualityAutoNotification  '{"value":0}'
 
 adb shell  msg_center_test -t AC/Fragrance/Pos1TypesSts  '{"value":1}'
@@ -86,7 +89,7 @@ adb shell  msg_center_test -t AC/AutoDefrostDefog '{"value":1}'
 #adb shell  msg_center_test -t AC/SeatMassageMode/FrontRight  '{"value":2}'
 
 #智能模式
-adb shell  msg_center_test -t AC/ACFast/Heat  '{"value":1}'
+adb shell  msg_center_test -t AC/ACFast/Heat  '{"value":0}'
 adb shell  msg_center_test -t AC/Cool/Heat  '{"value":0}'
 adb shell  msg_center_test -t AC/InteMode  '{"value":0}'
 
